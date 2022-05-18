@@ -130,3 +130,15 @@ select * from items where item_id =3;
 select * from items where item_id=(select fk_item_id from order_items where fk_order_id=(select order_id from orders where fk_cust_id=1) limit 1);
 
 
+#Task
+
+select item_name from items where stock=(select min(stock) from items);
+select item_name from items where stock=(select max(stock) from items);
+select count(cust_id) from customer;
+select avg(order_total) from orders;
+select sum(orderline_total) from order_items group by fk_order_id;
+
+select * from items where item_id=(select fk_item_id from order_items where oi_id=1);
+
+select * from customer where cust_addr=(select fk_order_id from orders where fk_cust_id=(select cust_id from customer));
+select * from customer where cust_addr='123
