@@ -140,5 +140,4 @@ select sum(orderline_total) from order_items group by fk_order_id;
 
 select * from items where item_id=(select fk_item_id from order_items where oi_id=1);
 
-select * from customer where cust_addr=(select fk_order_id from orders where fk_cust_id=(select cust_id from customer));
-select * from customer where cust_addr='123
+select cust_addr from customer where cust_id=(select fk_cust_id from orders where order_id=1);
